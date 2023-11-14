@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new CountDownTimer(5000, 1000) { // Ajusté el tiempo a 5000 milisegundos (5 segundos)
+        new CountDownTimer(5000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 Toast.makeText(MainActivity.this, "Cargando: " + millisUntilFinished / 1000, Toast.LENGTH_SHORT).show();
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent intent = new Intent(MainActivity.this,login.class);
+                Intent intent = new Intent(MainActivity.this,inicio.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "iniciando", Toast.LENGTH_SHORT).show();
             }
