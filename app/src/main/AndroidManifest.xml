@@ -21,9 +21,6 @@
             android:name=".verificar_token"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".register_empresa"
             android:exported="false" />
         <activity
