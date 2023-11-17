@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuPorfile"
+        android:icon="@drawable/img"
+        android:title="Perfil"/>
+
+    <item
+        android:id="@+id/menuEmpresas"
+        android:title="Empresas">
+        <menu>
+            <!-- Submenú para empresas existentes -->
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menuEmpresa1"
+                    android:icon="@drawable/img"
+                    android:title="Empresa 1"/>
+            </group>
+            <!-- Opción para agregar una nueva empresa -->
+            <item
+                android:id="@+id/menuAgregarEmpresa"
+                android:icon="@drawable/img"
+                android:title="Agregar Empresa"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menuVitrinas"
+        android:title="Vitrinas">
+        <menu>
+            <!-- Submenú para vitrinas existentes -->
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menuVitrina1"
+                    android:icon="@drawable/img"
+                    android:title="Vitrina 1"/>
+
+            </group>
+            <!-- Opción para agregar una nueva vitrina -->
+            <item
+                android:id="@+id/menuAgregarVitrina"
+                android:icon="@drawable/img"
+                android:title="Agregar Vitrina"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menuSensores"
+        android:title="Sensores">
+        <menu>
+            <!-- Submenú para sensores existentes -->
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menuSensor1"
+                    android:icon="@drawable/img"
+                    android:title="Sensor 1"/>
+            </group>
+            <!-- Opción para agregar un nuevo sensor -->
+            <item
+                android:id="@+id/menuAgregarSensor"
+                android:icon="@drawable/img"
+                android:title="Agregar Sensor"/>
+        </menu>
+    </item>
+
+</menu>
