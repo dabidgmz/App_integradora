@@ -3,4 +3,6 @@
     <string name="contrase_a">Contraseña</string>
     <string name="correo_electr_nico">Correo Electrónico</string>
     <string name="tu_seguridad_es_nuestra_prioridad">Tu seguridad es nuestra prioridad.</string>
+    <string name="verifique_su_token">Verifique su Token</string>
+    <string name="inserte_su_token">inserte su Token</string>
 </resources>
