@@ -18,7 +18,7 @@ public class register_empresa extends AppCompatActivity {
         buttonOmitir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(register_empresa.this,pantalla_principal.class);
+                Intent intent=new Intent(register_empresa.this,Menu.class);
                 startActivity(intent);
             }
         });
@@ -26,7 +26,7 @@ public class register_empresa extends AppCompatActivity {
         buttonRegistrarEmpresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(register_empresa.this, pantalla_principal.class);
+                Intent intent=new Intent(register_empresa.this, Menu.class);
                 startActivity(intent);
             }
         });
