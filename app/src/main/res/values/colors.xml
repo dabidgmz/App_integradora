@@ -3,4 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="amarillo_pollito">#FFDE59</color>
+    <color name="cuadrosen">#FFFF7d</color>
+    <color name="gris">#FF8C8A83</color>
+    <color name="degradado_inicio">#FF8800</color>
+    <color name="degradado_fin">#FFC000</color>
+    <color name="sombra">#AEA3A2A2</color>
+
 </resources>
