@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -17,6 +18,8 @@ public class Menu extends AppCompatActivity {
         final DrawerLayout drawerLayout = findViewById(R.id.menu);
         Button buttontriggers=findViewById(R.id.trigger);
         Button buttonsensors=findViewById(R.id.Sensor);
+        LinearLayout ultrasonic = findViewById(R.id.ultrasonic);
+
         buttontriggers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +40,10 @@ public class Menu extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+    }
+    public void onLinear(View view) {
+        Intent intent = new Intent(this, Movimient.class);
+        startActivity(intent);
     }
 
   /* public void onMenuOptionSelected(View view) {
