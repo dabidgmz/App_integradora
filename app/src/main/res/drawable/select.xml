@@ -22,7 +22,7 @@
                 android:startColor="@color/sombra"
                 android:type="linear" />
             <corners
-                android:radius="30dp"
+                android:radius="40dp"
                 android:bottomLeftRadius="0dp"
                 android:bottomRightRadius="0dp" />
         </shape>

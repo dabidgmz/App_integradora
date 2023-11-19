@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item>
         <shape>
             <gradient
-                android:angle="0"
+                android:angle="270"
                 android:endColor="@color/sombra"
-                android:startColor="@android:color/transparent"
+                android:startColor="@color/sombra"
                 android:type="linear" />
             <corners
-                android:radius="30dp"
+                android:radius="40dp"
                 android:bottomLeftRadius="0dp"
                 android:bottomRightRadius="0dp" />
         </shape>
     </item>
-    <item android:right="4dp">
+
+    <item android:right="3dp" >
         <shape>
             <solid android:color="@color/cuadrosen" />
             <corners
@@ -21,7 +23,7 @@
                 android:bottomLeftRadius="0dp"
                 android:bottomRightRadius="0dp" />
             <stroke
-                android:width="2dp"
+                android:width="3dp"
                 android:color="@color/cuadrosen" />
         </shape>
     </item>
