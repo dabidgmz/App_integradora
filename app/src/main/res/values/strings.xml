@@ -5,4 +5,8 @@
     <string name="tu_seguridad_es_nuestra_prioridad">Tu seguridad es nuestra prioridad.</string>
     <string name="verifique_su_token">Verifique su Token</string>
     <string name="inserte_su_token">inserte su Token</string>
+    <string name="temperatura">Temperatura y humedad</string>
+    <string name="gas">Sensor de Gas</string>
+    <string name="id">ID</string>
+    <string name="sensor_impacto">Sensor de Impacto</string>
 </resources>
