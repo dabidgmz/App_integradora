@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools"> n
+    <style name="Base.Theme.App_integradora" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/amarillo_pollito</item>
+    </style>
+    <style name="Theme.App_integradora" parent="Base.Theme.App_integradora" />
+</resources>
