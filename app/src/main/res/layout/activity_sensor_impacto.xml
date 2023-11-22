@@ -99,7 +99,8 @@
         app:layout_constraintTop_toTopOf="@+id/guideLine6"
         app:layout_constraintVertical_bias="1.0" />
 
-    <!--cardview que manda una alerta cuando hay un impacto-->
+    /*cardview que manda una alerta cuando hay un impacto
+    */
     <androidx.cardview.widget.CardView
         android:id="@+id/alerta"
         android:layout_width="265dp"

@@ -115,7 +115,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <View
-        android:backgroundTint="@color/amarillo_pollito"
         android:id="@+id/circleView"
         android:layout_width="300dp"
         android:layout_height="300dp"
@@ -168,7 +167,9 @@
         app:layout_constraintTop_toTopOf="@+id/guideLine1"
         app:layout_constraintVertical_bias="0.571" />
 
-    <!--cardview que se usa cuando se llega a un parametro de temperatura y humedad-->
+    /*cardview que se usa cuando se llega a un parametro de temperatura
+    y humedad
+    */
     <androidx.cardview.widget.CardView
         android:id="@+id/alerta"
         android:layout_width="265dp"
