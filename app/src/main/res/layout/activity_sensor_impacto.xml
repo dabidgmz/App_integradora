@@ -51,6 +51,7 @@
         android:id="@+id/rectangle_2"
         android:layout_width="174dp"
         android:layout_height="30dp"
+        android:backgroundTint="@color/amarillo_pollito"
         android:background="@drawable/rectangle_2"
         app:layout_constraintBottom_toTopOf="@+id/guideLine1"
         app:layout_constraintEnd_toStartOf="@+id/guideLine3"
@@ -63,6 +64,7 @@
         android:id="@+id/rectangle_3"
         android:layout_width="174dp"
         android:layout_height="30dp"
+        android:backgroundTint="@color/amarillo_pollito"
         android:background="@drawable/rectangle_2"
         app:layout_constraintBottom_toTopOf="@+id/guideLine1"
         app:layout_constraintEnd_toStartOf="@+id/guideLine3"
@@ -99,8 +101,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideLine6"
         app:layout_constraintVertical_bias="1.0" />
 
-    /*cardview que manda una alerta cuando hay un impacto
-    */
+    <!--cardview que manda una alerta cuando hay un impacto-->
     <androidx.cardview.widget.CardView
         android:id="@+id/alerta"
         android:layout_width="265dp"
