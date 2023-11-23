@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +29,15 @@
         <activity
             android:name=".Sensor_impacto"
             android:exported="false"/>
+        <activity
+            android:name=".agregar_sensor1"
+            android:exported="false" />
+        <activity
+            android:name=".agregar_vitrina1"
+            android:exported="false" />
+        <activity
+            android:name=".agregar_empresa1"
+            android:exported="false" />
         <activity
             android:name=".sensor_luz"
             android:exported="false" />

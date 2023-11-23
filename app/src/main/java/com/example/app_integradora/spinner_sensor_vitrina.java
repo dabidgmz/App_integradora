@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
-public class Menu_despegable extends AppCompatActivity {
+public class spinner_sensor_vitrina extends AppCompatActivity {
 
     private Spinner spinner;
     private ArrayAdapter<String> adapter;
@@ -46,7 +46,7 @@ public class Menu_despegable extends AppCompatActivity {
             }
         });
 
-        // Agrega opciones a la lista (puedes hacer esto en cualquier parte de tu código)
+        // Agrega opciones a la lista
         agregarOpcion("Opción 1");
         agregarOpcion("Opción 2");
         agregarOpcion("Opción 3");

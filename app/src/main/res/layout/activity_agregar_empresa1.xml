@@ -48,45 +48,34 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/textvitrina"
+                android:id="@+id/textempresa"
                 android:layout_width="250dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:text="Agregar Vitrina"
-                android:textSize="30sp"
-                />
+                android:text="Agregar Empresa"
+                android:textSize="30sp" />
 
             <EditText
-                android:id="@+id/editTextNombrev"
+                android:id="@+id/editTextNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textvitrina"
+                android:layout_below="@id/textempresa"
                 android:backgroundTint="@color/amarillo_pollito"
                 android:hint="Nombre"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:textColor="@color/black" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editTextNombrev"
-                android:layout_marginTop="25dp"
-                android:minHeight="48dp"
-                android:prompt="Empresa" />
-
-
             <Button
                 android:id="@+id/buttonAgregarEmpresa"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/spinner"
+                android:layout_below="@id/editTextNombre"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25dp"
                 android:backgroundTint="@color/amarillo_pollito"
-                android:onClick="agregarvitrina"
+                android:onClick="agregarempresa"
                 android:text="Agregar"
                 android:textColor="@color/black" />
 
