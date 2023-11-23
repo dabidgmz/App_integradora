@@ -8,5 +8,7 @@
     <color name="degradado_inicio">#FF8800</color>
     <color name="degradado_fin">#FFC000</color>
     <color name="sombra">#AEA3A2A2</color>
+    <color name="Encender">#00CC00</color>
+    <color name="Apagar">#FF0000</color>
 
 </resources>
