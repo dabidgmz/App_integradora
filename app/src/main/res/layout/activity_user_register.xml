@@ -83,8 +83,8 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="23dp"
         android:backgroundTint="@color/amarillo_pollito"
-        android:text="Registrar Usuario"
         android:onClick="registrarusuario"
+        android:text="Registrar Usuario"
         android:textColor="@color/black" />
 
 </RelativeLayout>
