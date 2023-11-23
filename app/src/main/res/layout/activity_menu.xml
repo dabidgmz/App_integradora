@@ -153,7 +153,8 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/img_2" />
+                                android:src="@drawable/img_2"
+                                android:contentDescription="TODO" />
 
 
                         </LinearLayout>
@@ -174,13 +175,15 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/temperatura"
                         android:layout_width="180dp"
                         android:layout_height="130dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
                         android:gravity="center"
-
+                        android:clickable="true"
+                        android:onClick="onLineartemp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -235,13 +238,15 @@
                     app:layout_constraintTop_toBottomOf="@id/Linear2">
 
                     <LinearLayout
+                        android:id="@+id/Impact"
                         android:layout_width="180dp"
                         android:layout_height="130dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
                         android:gravity="center"
-
+                        android:clickable="true"
+                        android:onClick="onLinearimp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -283,13 +288,15 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/gas"
                         android:layout_width="180dp"
                         android:layout_height="130dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
                         android:gravity="center"
-
+                        android:clickable="true"
+                        android:onClick="onLineargas"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -302,7 +309,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
-                                android:text="30%"
+                                android:text="@string/_30"
                                 android:textColor="@color/black"
                                 android:textSize="40dp"
                                 android:textStyle="bold" />
@@ -344,13 +351,15 @@
                     app:layout_constraintTop_toBottomOf="@id/Linear2">
 
                     <LinearLayout
+                        android:id="@+id/humedad"
                         android:layout_width="180dp"
                         android:layout_height="130dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
                         android:gravity="center"
-
+                        android:clickable="true"
+                        android:onClick="onLinearhum"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -392,13 +401,15 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/luz"
                         android:layout_width="180dp"
                         android:layout_height="130dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
                         android:gravity="center"
-
+                        android:clickable="true"
+                        android:onClick="onLinearluz"
                         android:orientation="vertical">
 
                         <LinearLayout
