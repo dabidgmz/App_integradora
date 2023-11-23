@@ -19,6 +19,11 @@ public class Menu extends AppCompatActivity {
         Button buttontriggers=findViewById(R.id.trigger);
         Button buttonsensors=findViewById(R.id.Sensor);
         LinearLayout ultrasonic = findViewById(R.id.ultrasonic);
+        LinearLayout temperatura = findViewById(R.id.temperatura);
+        LinearLayout humedad = findViewById(R.id.humedad);
+        LinearLayout Impact = findViewById(R.id.Impact);
+        LinearLayout gas = findViewById(R.id.gas);
+        LinearLayout luz = findViewById(R.id.luz);
 
         buttontriggers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +46,30 @@ public class Menu extends AppCompatActivity {
             }
         });
     }
+
+    // botones de sensores
     public void onLinear(View view) {
         Intent intent = new Intent(this, Movimient.class);
+        startActivity(intent);
+    }
+    public void onLineartemp(View view) {
+        Intent intent = new Intent(this, Movimient.class);
+        startActivity(intent);
+    }
+public void onLinearhum(View view) {
+        Intent intent = new Intent(this, Sensor_humedad.class);
+        startActivity(intent);
+    }
+    public void onLineargas(View view) {
+        Intent intent = new Intent(this,sensor_gas.class);
+        startActivity(intent);
+    }
+    public void onLinearluz(View view) {
+        Intent intent = new Intent(this, Movimient.class);
+        startActivity(intent);
+    }
+    public void onLinearimp(View view) {
+        Intent intent = new Intent(this, Sensor_impacto.class);
         startActivity(intent);
     }
 
