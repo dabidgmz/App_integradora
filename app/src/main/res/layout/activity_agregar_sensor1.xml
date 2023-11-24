@@ -75,7 +75,8 @@
                 android:layout_below="@id/editTextNombreS"
                 android:layout_marginTop="25dp"
                 android:minHeight="48dp"
-                android:prompt="Empresa" />
+                android:prompt="@string/prompt_empresa" />
+
 
 
             <Button
