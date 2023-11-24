@@ -75,8 +75,8 @@
 
         <TextView
             android:id="@+id/textVie"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_width="352dp"
+            android:layout_height="71dp"
             android:layout_below="@+id/image"
             android:layout_marginTop="52dp"
             android:layout_marginEnd="16dp"
@@ -102,5 +102,12 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/naView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start"/>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

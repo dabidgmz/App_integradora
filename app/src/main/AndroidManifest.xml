@@ -42,10 +42,10 @@
             android:name=".sensor_luz"
             android:exported="false" />
         <activity
-            android:name=".profile"
+            android:name=".Sensor_mov"
             android:exported="false" />
         <activity
-            android:name=".Movimient"
+            android:name=".profile"
             android:exported="false" />
         <activity
             android:name=".triggers"
