@@ -49,11 +49,11 @@ public class Menu extends AppCompatActivity {
 
     // botones de sensores
     public void onLinear(View view) {
-        Intent intent = new Intent(this, Movimient.class);
+        Intent intent = new Intent(this,Sensor_mov.class);
         startActivity(intent);
     }
     public void onLineartemp(View view) {
-        Intent intent = new Intent(this, Movimient.class);
+        Intent intent = new Intent(this,Sensor_mov.class);
         startActivity(intent);
     }
 public void onLinearhum(View view) {
@@ -65,7 +65,7 @@ public void onLinearhum(View view) {
         startActivity(intent);
     }
     public void onLinearluz(View view) {
-        Intent intent = new Intent(this, Movimient.class);
+        Intent intent = new Intent(this,Sensor_mov.class);
         startActivity(intent);
     }
     public void onLinearimp(View view) {

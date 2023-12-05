@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class User_Register extends AppCompatActivity {
 
+
+    private Button buttonRegistrarUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

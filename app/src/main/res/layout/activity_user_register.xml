@@ -49,7 +49,6 @@
         android:maxLength="10"
         android:textColorHint="#8D6E63" />
 
-
     <EditText
         android:id="@+id/editTextCorreo"
         android:layout_width="match_parent"
@@ -63,10 +62,34 @@
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/editTextmatricula"
+        android:id="@+id/editTextContraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextCorreo"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/amarillo_pollito"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/editTextConfirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextContraseña"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/amarillo_pollito"
+        android:hint="Confirmar Contraseña"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/editTextmatricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextConfirmpassword"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Matricula"
