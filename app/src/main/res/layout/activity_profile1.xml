@@ -28,6 +28,7 @@
                 android:id="@+id/imagMenu"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/menu" />
 
@@ -52,70 +53,78 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearMenu">
 
-            <!-- Campos de Texto (TextView) -->
+            <ImageView
+                android:id="@+id/imageViewUsuario"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Imagen de Usuario"
+                android:src="@drawable/logo" />
+
             <TextView
-                android:id="@+id/editTextNombre"
+                android:id="@+id/textViewNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/imageViewUsuario"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/amarillo_pollito"
-                android:hint="Nombre"
+                android:hint="Nombre :"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/editTextApellido"
+                android:id="@+id/textViewApellido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editTextNombre"
+                android:layout_below="@id/textViewNombre"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/amarillo_pollito"
-                android:hint="Apellido"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:textColor="@color/black" />
-            <TextView
-                android:id="@+id/editTextmatricula"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editTextApellido"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/amarillo_pollito"
-                android:hint="Matricuña"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:textColor="@color/black" />
-            <TextView
-                android:id="@+id/editTextEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editTextmatricula"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/amarillo_pollito"
-                android:hint="Email"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:textColor="@color/black" />
-            <TextView
-                android:id="@+id/editTextNombreEmpresa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editTextEmail"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/amarillo_pollito"
-                android:hint="Empresa"
+                android:hint="Apellido :"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/textViewMatricula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewApellido"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/amarillo_pollito"
+                android:hint="Matrícula :"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewMatricula"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/amarillo_pollito"
+                android:hint="Email :"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/textViewNombreEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewEmail"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/amarillo_pollito"
+                android:hint="Empresa :"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/black" />
         </RelativeLayout>
 
-    </RelativeLayout>
 
-    <!-- Menú de Navegación -->
+    </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/naView"
         android:layout_width="wrap_content"
@@ -124,3 +133,4 @@
         android:layout_gravity="start"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
+
