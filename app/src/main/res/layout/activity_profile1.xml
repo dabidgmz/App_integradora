@@ -12,8 +12,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <!-- Barra Amarilla con Nombre de Usuario y Menú Desplegable -->
         <LinearLayout
             android:id="@+id/linearMenu"
             android:layout_width="match_parent"
