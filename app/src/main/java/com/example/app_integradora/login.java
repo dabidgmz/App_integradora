@@ -3,14 +3,12 @@ package com.example.app_integradora;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.app_integradora.Retroft.PostUserLogin;
 import com.example.app_integradora.Retroft.ResponsePostUserLogin;
 import com.example.app_integradora.viewmodel.viewmodelogin;
@@ -46,7 +44,6 @@ public class login extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to SignUp activity
                 startActivity(new Intent(login.this,User_Register.class));
             }
         });
@@ -56,7 +53,6 @@ public class login extends AppCompatActivity {
             public void onChanged(ResponsePostUserLogin response) {
                 if (response != null) {
                     Toast.makeText(login.this, "¡Bienvenido!", Toast.LENGTH_SHORT).show();
-                    // Start the Menu activity
                     startActivity(new Intent(login.this, Menu.class));
                     finish();
                 } else {

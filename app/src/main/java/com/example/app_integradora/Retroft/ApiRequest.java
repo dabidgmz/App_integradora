@@ -16,5 +16,6 @@ Call<ResponsePostUserLogout> logoutUser(@Header("Authorization") String authoriz
 
 @GET("api/me")
 Call<ResponsePostUserMe> meUser(@Header("Authorization") String token);
+    @POST("api/empresas")
+    Call<ResponsePostEmpresa> empresa(@Body PostEmpresa postEmpresas);
 }
-

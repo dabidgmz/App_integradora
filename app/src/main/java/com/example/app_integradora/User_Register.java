@@ -3,6 +3,7 @@ package com.example.app_integradora;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.app_integradora.Retroft.ApiRequest;
 import com.example.app_integradora.Retroft.PostUserRegister;
 import com.example.app_integradora.Retroft.ResponsePostUserRegister;
 import com.example.app_integradora.viewmodel.viewmodelregistro;
@@ -69,7 +69,6 @@ public class User_Register extends AppCompatActivity {
                 }
             }
         });
-
 
         viewModel.getError().observe(this, new Observer<String>() {
             @Override
