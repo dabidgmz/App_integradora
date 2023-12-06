@@ -17,10 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageViewUsuario"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Nombre"
         android:inputType="text"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
         android:textColor="@color/black" />
 
     <EditText
@@ -28,11 +29,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNombre"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Apellido"
         android:inputType="text"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
         android:textColor="@color/black" />
 
     <EditText
@@ -40,11 +41,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextApellido"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Telefono"
         android:inputType="number"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
         android:textColor="@color/black"
         android:maxLength="10"
         android:textColorHint="#8D6E63" />
@@ -54,35 +55,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTexttelefono"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/editTextContraseña"
+        android:id="@+id/editTextContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextCorreo"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
         android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/editTextConfirmpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextContraseña"
-        android:layout_marginTop="16dp"
+        android:layout_below="@id/editTextContrasena"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Confirmar Contraseña"
         android:inputType="textPassword"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
         android:textColor="@color/black" />
 
     <EditText
@@ -90,11 +91,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextConfirmpassword"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:hint="Matricula"
         android:inputType="number"
-        android:minHeight="48dp"
+        android:minHeight="38dp"
+        android:maxLength="8"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/editTextdepartament"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextmatricula"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/amarillo_pollito"
+        android:hint="Departamento"
+        android:inputType="text"
+        android:minHeight="38dp"
         android:maxLength="8"
         android:textColor="@color/black" />
 
@@ -102,12 +116,13 @@
         android:id="@+id/buttonRegistrarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextmatricula"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="23dp"
+        android:layout_below="@id/editTextdepartament"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:onClick="registrarusuario"
         android:text="Registrar Usuario"
         android:textColor="@color/black" />
 
 </RelativeLayout>
+
