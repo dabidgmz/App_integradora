@@ -78,7 +78,6 @@
                 android:prompt="@string/prompt_empresa" />
 
 
-
             <Button
                 android:id="@+id/buttonAgregarSensor"
                 android:layout_width="130dp"
