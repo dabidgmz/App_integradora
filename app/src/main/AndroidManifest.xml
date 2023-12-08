@@ -21,14 +21,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".bienvenida"
+            android:exported="false" />
+        <activity
             android:name=".sensor_gas"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Sensor_humedad"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Sensor_impacto"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".agregar_sensor1"
             android:exported="false" />

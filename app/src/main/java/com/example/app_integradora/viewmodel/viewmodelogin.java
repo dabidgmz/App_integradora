@@ -1,5 +1,7 @@
 package com.example.app_integradora.viewmodel;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -13,9 +15,17 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class viewmodelogin extends ViewModel {
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class viewmodelogin extends AndroidViewModel {
     private MutableLiveData<ResponsePostUserLogin> loginresult = new MutableLiveData<>();
     private MutableLiveData<String> error = new MutableLiveData<>();
+
+    public viewmodelogin(@NonNull Application application) {
+        super(application);
+    }
 
     public MutableLiveData<ResponsePostUserLogin> getLoginresult() {
         return loginresult;
@@ -25,29 +35,6 @@ public class viewmodelogin extends ViewModel {
         return error;
     }
 
-    public void loginUser(PostUserLogin user) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://3.138.171.241")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        ApiRequest apiRequest = retrofit.create(ApiRequest.class);
-        Call<ResponsePostUserLogin> call = apiRequest.loginUser(user);
 
-        call.enqueue(new Callback<ResponsePostUserLogin>() {
-            @Override
-            public void onResponse(Call<ResponsePostUserLogin> call, Response<ResponsePostUserLogin> response) {
-                if (response.isSuccessful()) {
-                    loginresult.postValue(response.body());
-                } else {
-                    loginresult.postValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponsePostUserLogin> call, Throwable t) {
-                error.postValue(t.getMessage());
-            }
-        });
-    }
 }

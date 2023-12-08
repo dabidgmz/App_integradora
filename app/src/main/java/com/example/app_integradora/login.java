@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.app_integradora.Retroft.PostUserLogin;
+import com.example.app_integradora.Interactor.LoginInteractor;
+import com.example.app_integradora.Retroft.PostUserLogin;
 import com.example.app_integradora.Retroft.ResponsePostUserLogin;
 import com.example.app_integradora.viewmodel.viewmodelogin;
 
@@ -35,8 +37,11 @@ public class login extends AppCompatActivity {
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(login.this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
-                    PostUserLogin post = new PostUserLogin(email, password);
-                    viewModel.loginUser(post);
+                    PostUserLogin user = new PostUserLogin(correo.getText().toString(),contrasena.getText().toString());
+                    LoginInteractor log = new LoginInteractor(login.this);
+                    log.loginUser(user);
+
+
                 }
             }
         });
