@@ -7,11 +7,11 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiRequest {
-    @POST("api/register")
+    @POST("api/auth/register")
     Call<ResponsePostUserRegister> registerUser(@Body PostUserRegister user);
-    @POST("api/login")
+    @POST("api/auth/register")
     Call<ResponsePostUserLogin> loginUser(@Body PostUserLogin postUserLogin);
-@POST("api/logout")
+@POST("api/auth/register")
 Call<ResponsePostUserLogout> logoutUser(@Header("Authorization") String authorizationHeader);
 
 @GET("api/me")

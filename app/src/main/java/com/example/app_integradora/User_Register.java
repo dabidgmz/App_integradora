@@ -48,7 +48,6 @@ public class User_Register extends AppCompatActivity {
 
                 if (password.equals(passwordConfirmation)) {
                     PostUserRegister post = new PostUserRegister(name, lastName, phone, email, password, depart, passwordConfirmation);
-
                     viewModel.registerUser(post);
                 } else {
                     Toast.makeText(User_Register.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
@@ -59,14 +58,15 @@ public class User_Register extends AppCompatActivity {
         viewModel.getRegisterResult().observe(this, new Observer<ResponsePostUserRegister>() {
             @Override
             public void onChanged(ResponsePostUserRegister response) {
-                if (response != null ) {
+                if (response != null) {
                     Toast.makeText(User_Register.this, response.getMsg(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(User_Register.this, login.class);
+                    Intent intent = new Intent(getApplicationContext(), register_empresa.class);
                     startActivity(intent);
-                    finish();
+                    finish();;
                 } else {
                     Toast.makeText(User_Register.this, "Registro denegado", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
