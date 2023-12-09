@@ -9,12 +9,12 @@ import retrofit2.http.POST;
 public interface ApiRequest {
     @POST("api/auth/register")
     Call<ResponsePostUserRegister> registerUser(@Body PostUserRegister user);
-    @POST("api/auth/register")
+    @POST("api/auth/login")
     Call<ResponsePostUserLogin> loginUser(@Body PostUserLogin postUserLogin);
-@POST("api/auth/register")
+@POST("api/auth/logout")
 Call<ResponsePostUserLogout> logoutUser(@Header("Authorization") String authorizationHeader);
 
-@GET("api/me")
+@GET("api/auth/me")
 Call<ResponsePostUserMe> meUser(@Header("Authorization") String token);
     @POST("api/empresas")
     Call<ResponsePostEmpresa> empresa(@Body PostEmpresa postEmpresas);

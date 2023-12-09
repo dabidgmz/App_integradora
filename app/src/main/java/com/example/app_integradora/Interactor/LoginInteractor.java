@@ -3,10 +3,11 @@ package com.example.app_integradora.Interactor;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
-import com.example.app_integradora.viewmodel.viewModelToken;
+
 import com.example.app_integradora.Retroft.ApiRequest;
 import com.example.app_integradora.Retroft.PostUserLogin;
 import com.example.app_integradora.Retroft.ResponsePostUserLogin;
+import com.example.app_integradora.viewmodel.viewmodelogin;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,9 +18,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginInteractor {
 
     private Context context;
-    public  LoginInteractor (Context context){
-        this.context = context;
+    private viewmodelogin viewModel;
 
+    public LoginInteractor(Context context, viewmodelogin viewModel) {
+        this.context = context;
+        this.viewModel = viewModel;
     }
 
     public void loginUser(PostUserLogin user) {
@@ -34,26 +37,29 @@ public class LoginInteractor {
         call.enqueue(new Callback<ResponsePostUserLogin>() {
             @Override
             public void onResponse(Call<ResponsePostUserLogin> call, Response<ResponsePostUserLogin> response) {
-                SharedPreferences.Editor editok = context.getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE).edit();
-                editok.remove("token");
-                editok.apply();
-                viewModelToken.clearToken(context);
                 if (response.isSuccessful()) {
-                    SharedPreferences.Editor editoken = context.getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE).edit();
-                    editoken.putString("token", response.body().getAccess_token());
-                    editoken.apply();
-                    Toast.makeText(context, "Si funciono", Toast.LENGTH_SHORT).show();
-                  //error por falta de datos
-                } else {
-                    Toast.makeText(context, "no jalo raza", Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor editTokenSuccess = context.getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE).edit();
+                    editTokenSuccess.putString("token", response.body().getAccess_token());
+                    editTokenSuccess.apply();
+                    Toast.makeText(context, "¡Inicio de sesión exitoso!", Toast.LENGTH_SHORT).show();
 
+                    // Notificar al ViewModel sobre el inicio de sesión exitoso
+                    viewModel.getLoginresult().setValue(response.body());
+                } else {
+                    Toast.makeText(context, "Error en el inicio de sesión: " + response.message(), Toast.LENGTH_SHORT).show();
+
+                    // Notificar al ViewModel sobre el error de inicio de sesión
+                    viewModel.getError().setValue("Error en el inicio de sesión: " + response.message());
                 }
             }
-//no funciono por error de servidor
+
             @Override
             public void onFailure(Call<ResponsePostUserLogin> call, Throwable t) {
-                Toast.makeText(context, "no jalo xdd", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Error en el inicio de sesión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                // Notificar al ViewModel sobre el error de inicio de sesión
+                viewModel.getError().setValue("Error en el inicio de sesión: " + t.getMessage());
             }
         });
-}
+    }
 }

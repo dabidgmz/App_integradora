@@ -4,12 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
+
 import com.example.app_integradora.Menu;
-import com.example.app_integradora.R;
 import com.example.app_integradora.Retroft.ApiRequest;
 import com.example.app_integradora.Retroft.PostUserLogin;
 import com.example.app_integradora.Retroft.ResponsePostUserLogin;
-import com.example.app_integradora.User_Register;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +29,7 @@ public class AuthLogin {
         Call<ResponsePostUserLogin> call = apiRequest.loginUser(userLogin);
 
         call.enqueue(new Callback<ResponsePostUserLogin>() {
+
             @Override
             public void onResponse(Call<ResponsePostUserLogin> call, Response<ResponsePostUserLogin> response) {
                 if (response.isSuccessful()) {
