@@ -11,4 +11,6 @@
     <string name="sensor_impacto">Sensor de Impacto</string>
     <string name="_30">30%</string>
     <string name="prompt_empresa">Empresa</string>
+    <string name="cerrar">Abrir navegador de busqueda</string>
+    <string name="abrir">Cerrar navegador de busqueda</string>
 </resources>

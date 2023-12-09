@@ -3,13 +3,14 @@ package com.example.app_integradora.Retroft;
 public class ResponsePostUserMe {
     private String id;
     private String name;
-    private String is_active;
+    private String lastname; // Agregado para que coincida con 'lastname' en PHP
     private String email;
-    private String email_verified_at;
+    private String departament; // Agregado para que coincida con 'departament' en PHP
+    private String phone; // Agregado para que coincida con 'phone' en PHP
+    private String status; // Agregado para que coincida con 'status' en PHP
     private String password;
-    private String remember_token;
-    private String created_at;
-    private String updated_at;
+
+    // Agrega getters y setters según sea necesario
 
     public String getId() {
         return id;
@@ -27,12 +28,12 @@ public class ResponsePostUserMe {
         this.name = name;
     }
 
-    public String getIs_active() {
-        return is_active;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setIs_active(String is_active) {
-        this.is_active = is_active;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
@@ -43,12 +44,28 @@ public class ResponsePostUserMe {
         this.email = email;
     }
 
-    public String getEmail_verified_at() {
-        return email_verified_at;
+    public String getDepartament() {
+        return departament;
     }
 
-    public void setEmail_verified_at(String email_verified_at) {
-        this.email_verified_at = email_verified_at;
+    public void setDepartament(String departament) {
+        this.departament = departament;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getPassword() {
@@ -57,29 +74,5 @@ public class ResponsePostUserMe {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getRemember_token() {
-        return remember_token;
-    }
-
-    public void setRemember_token(String remember_token) {
-        this.remember_token = remember_token;
-    }
-
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
-
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
     }
 }

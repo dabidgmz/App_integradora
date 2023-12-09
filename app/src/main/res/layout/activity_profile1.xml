@@ -114,13 +114,13 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/textViewNombreEmpresa"
+                android:id="@+id/textViewdepartamento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewEmail"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/amarillo_pollito"
-                android:hint="Empresa :"
+                android:hint="Departamento :"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:layout_marginLeft="5dp"
