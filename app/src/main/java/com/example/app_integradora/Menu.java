@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import com.google.android.material.navigation.NavigationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -13,8 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class Menu extends AppCompatActivity {
 
    DrawerLayout drawerLayout;
-    //NavigationView navigationView;
-   // ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+   ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +26,12 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         drawerLayout = findViewById(R.id.menu);
-       // navigationView = findViewById(R.id.naView);
-       // actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.abrir, R.string.cerrar);
-        //drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        //actionBarDrawerToggle.syncState();
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-/*
+        navigationView = findViewById(R.id.naView);
+       actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.abrir, R.string.cerrar);
+       drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -53,7 +57,7 @@ public class Menu extends AppCompatActivity {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
-        });*/
+        });
 
 
         Button buttonTriggers = findViewById(R.id.trigger);
