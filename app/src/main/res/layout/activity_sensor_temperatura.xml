@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Sensor_temperatura"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sensor_temperatura">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Menu -->
+        <LinearLayout
+            android:id="@+id/linearMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/amarillo_pollito"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp">
+
+            <ImageView
+                android:id="@+id/imagMenu"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/menu" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/temperatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24°C"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:layout_centerInParent="true" />
+
+        <!-- Texto de nombre y ID -->
+        <TextView
+            android:id="@+id/nombreId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre y ID"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/temperatura"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <!-- Botones de encender y apagar aire -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/nombreId"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/btnEncenderAire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encender Aire"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="20dp" />
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/btnApagarAire"
+                android:layout_below="@id/btnEncenderAire"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:text="Apagar Aire" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- Contenido del Drawer (si es necesario) -->
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

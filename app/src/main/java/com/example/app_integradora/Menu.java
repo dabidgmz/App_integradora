@@ -53,7 +53,7 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
     }
     public void onLineartemp(View view) {
-        Intent intent = new Intent(this,Sensor_mov.class);
+        Intent intent = new Intent(this,Sensor_temperatura.class);
         startActivity(intent);
     }
 public void onLinearhum(View view) {
@@ -65,7 +65,7 @@ public void onLinearhum(View view) {
         startActivity(intent);
     }
     public void onLinearluz(View view) {
-        Intent intent = new Intent(this,Sensor_mov.class);
+        Intent intent = new Intent(this,sensor_luz.class);
         startActivity(intent);
     }
     public void onLinearimp(View view) {
