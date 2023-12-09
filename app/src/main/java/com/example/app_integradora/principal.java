@@ -14,25 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class Menu extends AppCompatActivity {
-
-   DrawerLayout drawerLayout;
-    NavigationView navigationView;
-   ActionBarDrawerToggle actionBarDrawerToggle;
-
+public class principal extends AppCompatActivity {
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-
+        setContentView(R.layout.activity_principal);
         drawerLayout = findViewById(R.id.menu);
-        navigationView = findViewById(R.id.naView);
-       actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.abrir, R.string.cerrar);
-       drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         Button buttonTriggers = findViewById(R.id.trigger);
         Button buttonSensors = findViewById(R.id.Sensor);
         LinearLayout ultrasonic = findViewById(R.id.ultrasonic);
@@ -45,7 +33,7 @@ public class Menu extends AppCompatActivity {
         buttonTriggers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Menu.this, triggers.class);
+                Intent intent = new Intent(principal.this, triggers.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +41,7 @@ public class Menu extends AppCompatActivity {
         buttonSensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Menu.this, Menu.class);
+                Intent intent = new Intent(principal.this, Menu.class);
                 startActivity(intent);
             }
         });

@@ -62,7 +62,7 @@ public class login extends AppCompatActivity {
             public void onChanged(ResponsePostUserLogin response) {
                 if (response != null) {
                     Toast.makeText(login.this, "¡Bienvenido!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(login.this, Menu.class));
+                    startActivity(new Intent(login.this, principal.class));
                     finish();
                 } else {
                     Toast.makeText(login.this, "Login denegado", Toast.LENGTH_SHORT).show();

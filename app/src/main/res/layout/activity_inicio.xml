@@ -43,4 +43,3 @@
         android:onClick="comenzar" />
 
 </RelativeLayout>
-
