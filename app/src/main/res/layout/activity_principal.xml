@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/menu"
-    tools:context=".Menu">
+    android:id="@+id/principal"
+    tools:context=".principal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,6 +45,7 @@
         </LinearLayout>
 
         <!-- Opc -->
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="00dp"
@@ -52,8 +53,8 @@
             app:layout_constraintBottom_toTopOf="@id/opc"
             app:layout_constraintTop_toBottomOf="@id/linearMenu"
 
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="16dp">
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="137dp">
             <!--principal-->
             <LinearLayout
                 android:id="@+id/linearprincipal"
@@ -128,8 +129,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
-                        android:gravity="center"
                         android:clickable="true"
+                        android:gravity="center"
                         android:onClick="onLinear"
                         android:orientation="vertical">
 
@@ -151,8 +152,8 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/img_2"
-                                android:contentDescription="TODO" />
+                                android:contentDescription="TODO"
+                                android:src="@drawable/img_2" />
 
 
                         </LinearLayout>
@@ -180,8 +181,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
-                        android:gravity="center"
                         android:clickable="true"
+                        android:gravity="center"
                         android:onClick="onLineartemp"
                         android:orientation="vertical">
 
@@ -244,8 +245,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
-                        android:gravity="center"
                         android:clickable="true"
+                        android:gravity="center"
                         android:onClick="onLinearimp"
                         android:orientation="vertical">
 
@@ -294,8 +295,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
-                        android:gravity="center"
                         android:clickable="true"
+                        android:gravity="center"
                         android:onClick="onLineargas"
                         android:orientation="vertical">
 
@@ -357,8 +358,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
-                        android:gravity="center"
                         android:clickable="true"
+                        android:gravity="center"
                         android:onClick="onLinearhum"
                         android:orientation="vertical">
 
@@ -407,8 +408,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/formasensor"
-                        android:gravity="center"
                         android:clickable="true"
+                        android:gravity="center"
                         android:onClick="onLinearluz"
                         android:orientation="vertical">
 
