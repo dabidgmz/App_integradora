@@ -7,13 +7,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import androidx.lifecycle.LiveData;
-        import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
-public class viewmodeltriggers  extends androidx.lifecycle.ViewModel{
+public class viewmodeltriggers extends androidx.lifecycle.ViewModel {
     private ApiService apiService;
 
     public viewmodeltriggers() {
-           apiService = ApiService.getApiService();
+        apiService = ApiService.getApiService();
     }
 
     public LiveData<Modeltriggers> obtenerDatosDelVentilador() {
@@ -26,31 +26,39 @@ public class viewmodeltriggers  extends androidx.lifecycle.ViewModel{
                     data.setValue(response.body());
                 } else {
                     // Manejar errores aquí
+                    data.setValue(null); // Puedes asignar un valor nulo o un valor específico para indicar un error.
                 }
             }
+
             @Override
             public void onFailure(Call<Modeltriggers> call, Throwable t) {
                 // Manejar errores de conexión aquí
+                data.setValue(null); // Puedes asignar un valor nulo o un valor específico para indicar un error.
             }
         });
 
         return data;
     }
 
-    public void enviarComandoVentilador(/* Puedes pasar los parámetros necesarios aquí */String on) {
-        // Lógica para enviar comandos al ventilador
-        apiService.enviarComandoVentilador(/* Puedes pasar los parámetros necesarios aquí */)
+    MutableLiveData<Boolean> resultado = new MutableLiveData<>();
+
+    public void enviarComandoVentilador(String comando) {
+        apiService.enviarComandoVentilador(comando)
                 .enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (!response.isSuccessful()) {
                             // Manejar errores aquí
+                            resultado.setValue(null);
+                        } else {
+                            resultado.setValue(true); // Indicar que la operación fue exitosa
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         // Manejar errores de conexión aquí
+                        resultado.setValue(null);
                     }
                 });
     }
