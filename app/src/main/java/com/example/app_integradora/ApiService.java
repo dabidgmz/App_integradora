@@ -9,6 +9,10 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiService {
+    static ApiService getApiService() {
+        return null;
+    }
+
     @Headers({
             "Content-Type: application/json",
             "X-AIO-Key: aio_QUAu36PYGEgDrnkNnEimpVbutJDz"

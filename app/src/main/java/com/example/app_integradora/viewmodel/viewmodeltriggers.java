@@ -1,7 +1,6 @@
 package com.example.app_integradora.viewmodel;
 import com.example.app_integradora.ApiService;
 import com.example.app_integradora.Modelos.Modeltriggers;
-import com.google.gson.annotations.SerializedName;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -9,13 +8,12 @@ import retrofit2.Response;
 
 import androidx.lifecycle.LiveData;
         import androidx.lifecycle.MutableLiveData;
-        import androidx.lifecycle.ViewModel;
 
-public class viewmodeltriggers extends viewmodel {
+public class viewmodeltriggers  extends androidx.lifecycle.ViewModel{
     private ApiService apiService;
 
     public viewmodeltriggers() {
-        // Inicializa tu ApiService (puedes hacerlo utilizando Retrofit)
+           apiService = ApiService.getApiService();
     }
 
     public LiveData<Modeltriggers> obtenerDatosDelVentilador() {
@@ -39,7 +37,7 @@ public class viewmodeltriggers extends viewmodel {
         return data;
     }
 
-    public void enviarComandoVentilador(/* Puedes pasar los parámetros necesarios aquí */) {
+    public void enviarComandoVentilador(/* Puedes pasar los parámetros necesarios aquí */String on) {
         // Lógica para enviar comandos al ventilador
         apiService.enviarComandoVentilador(/* Puedes pasar los parámetros necesarios aquí */)
                 .enqueue(new Callback<Void>() {

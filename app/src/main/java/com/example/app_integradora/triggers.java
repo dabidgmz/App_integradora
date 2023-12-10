@@ -3,14 +3,18 @@ package com.example.app_integradora;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ToggleButton;
+
+import com.example.app_integradora.viewmodel.viewmodeltriggers;
 
 public class triggers extends AppCompatActivity {
-
+    private viewmodeltriggers viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +22,24 @@ public class triggers extends AppCompatActivity {
         final DrawerLayout drawerLayout = findViewById(R.id.mennu);
         Button buttontriggers=findViewById(R.id.trigger);
         Button buttonsensors=findViewById(R.id.Sensor);
+        viewModel = new ViewModelProvider(this).get(viewmodeltriggers.class);
+
+        ToggleButton toggleButtonVentilador = findViewById(R.id.toggleButtonVentilador);
+
+        toggleButtonVentilador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                boolean isChecked = toggleButtonVentilador.isChecked();
+
+                if (isChecked) {
+                    viewModel.enviarComandoVentilador("ON");
+                } else {
+                    viewModel.enviarComandoVentilador("OFF");
+                }
+            }
+        });
+
         buttontriggers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
