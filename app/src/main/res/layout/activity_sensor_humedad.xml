@@ -7,31 +7,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/Sensor_humedad"
     tools:context=".Sensor_humedad">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="102dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="286dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="128dp" />
 
     <!--Menu-->
     <LinearLayout
@@ -67,176 +47,98 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/rectangle_2"
-        android:layout_width="174dp"
-        android:layout_height="30dp"
-        android:backgroundTint="@color/amarillo_pollito"
-        android:background="@drawable/rectangle_2"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
+        <!-- FrameLayout rectangle_2 con TextView Gas_id -->
+        <FrameLayout
+            android:id="@+id/rectangle_2"
+            android:layout_width="174dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/amarillo_pollito"
+            android:background="@drawable/rectangle_2"
+            android:layout_below="@+id/linearMenu"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true">
 
-    <View
-        android:id="@+id/rectangle_3"
-        android:layout_width="174dp"
-        android:layout_height="30dp"
-        android:backgroundTint="@color/amarillo_pollito"
-        android:background="@drawable/rectangle_2"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toBottomOf="@+id/linearMenu"
-        app:layout_constraintVertical_bias="0.68" />
+            <TextView
+                android:id="@+id/Gas_id"
+                android:layout_width="155dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:text="@string/id"
+                android:textAppearance="@style/temperatura"/>
+        </FrameLayout>
 
-    <TextView
-        android:id="@+id/Gas_id"
-        android:layout_width="155dp"
-        android:layout_height="21dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/id"
-        android:textAppearance="@style/temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine9"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideLine5"
-        app:layout_constraintTop_toTopOf="@+id/guideLine8"
-        app:layout_constraintVertical_bias="1.0" />
+        <!-- FrameLayout rectangle_3 con TextView temperatura -->
+        <FrameLayout
+            android:id="@+id/rectangle_3"
+            android:layout_width="174dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/amarillo_pollito"
+            android:background="@drawable/rectangle_2"
+            android:layout_below="@+id/rectangle_2"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/temperatura"
-        android:layout_width="155dp"
-        android:layout_height="21dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/temperatura"
-        android:textAppearance="@style/temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine7"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideLine5"
-        app:layout_constraintTop_toTopOf="@+id/guideLine6"
-        app:layout_constraintVertical_bias="1.0" />
+            <TextView
+                android:id="@+id/temperatura"
+                android:layout_width="155dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:text="@string/temperatura"
+                android:textAppearance="@style/temperatura"/>
+        </FrameLayout>
 
-    <View
-        android:id="@+id/circleView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@drawable/circle_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearMenu">
 
-    </View>
+        <View
+            android:id="@+id/circleView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@drawable/circle_background"
+            android:layout_centerInParent="true"/>
 
-    <ImageView
-        android:id="@+id/image_term"
-        android:layout_width="50dp"
-        android:layout_height="150dp"
-        android:src="@drawable/termometro"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine2"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toTopOf="@+id/guideLine1"
-        />
+        <!-- ImageView centrado -->
+        <ImageView
+            android:id="@+id/image_term"
+            android:layout_width="50dp"
+            android:layout_height="150dp"
+            android:src="@drawable/termometro"
+            android:layout_centerInParent="true"/>
 
-    <TextView
-        android:id="@+id/humedar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="64%"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine2"
-        app:layout_constraintEnd_toEndOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toEndOf="@+id/image_term"
-        app:layout_constraintTop_toTopOf="@+id/guideLine1"
-        app:layout_constraintVertical_bias="0.444" />
+        <!-- TextViews centrados -->
+        <TextView
+            android:id="@+id/humedar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="--%"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@+id/image_term"
+            android:layout_alignTop="@+id/image_term"/>
 
-    <TextView
-        android:id="@+id/temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="24C°"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine2"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toEndOf="@+id/image_term"
-        app:layout_constraintTop_toTopOf="@+id/guideLine1"
-        app:layout_constraintVertical_bias="0.571" />
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="--C°"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_below="@+id/humedar"
+            android:layout_alignStart="@+id/humedar"/>
 
     <!--cardview que se usa cuando se llega a un parametro de temperatura
     y humedad
     -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/alerta"
-        android:layout_width="265dp"
-        android:layout_height="100dp"
-        app:cardBackgroundColor="@color/amarillo_pollito"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toTopOf="@+id/guideLine2">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/alerta"
+            android:layout_width="265dp"
+            android:layout_height="100dp"
+            app:cardBackgroundColor="@color/amarillo_pollito"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
 
-    </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="236dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="81dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="536dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="356dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="56dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="183dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="578dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

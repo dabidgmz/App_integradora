@@ -1,8 +1,18 @@
 package com.example.app_integradora;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.widget.TextView;
+
+import com.example.app_integradora.Retroft.ApiRequest;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Sensor_humedad extends AppCompatActivity {
 
@@ -10,5 +20,56 @@ public class Sensor_humedad extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor_humedad);
+
+        // TextViews
+        TextView humedadTextView = findViewById(R.id.humedar);
+        TextView temperaturaTextView = findViewById(R.id.temp);
+
+        CardView alertaCardView = findViewById(R.id.alerta);
+        TextView alertaTextView = new TextView(this);
+
+        alertaCardView.addView(alertaTextView);
+
+        ApiRequest apiRequest = new Retrofit.Builder()
+                .baseUrl("http://3.138.171.241")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiRequest.class);
+
+        apiRequest.getHumedad().enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()){
+                    String humedad = response.body();
+                    humedadTextView.setText(humedad);
+                    if(Integer.parseInt(humedad.replace("%", ""))> 100){
+                        alertaTextView.setText("¡Alerta! La humedad ha superado el 100%");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+
+        apiRequest.getTemperatura().enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()){
+                    String temperatura = response.body();
+                    temperaturaTextView.setText(temperatura);
+                    if (Integer.parseInt(temperatura.replace("C°", "")) > 30){
+                        alertaTextView.setText("¡Alerta! La temperatura ha superado los 30 grados");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
     }
 }

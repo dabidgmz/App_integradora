@@ -7,6 +7,10 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiRequest {
+    @GET("api/sensores/humedad")
+    Call<String> getHumedad();
+    @GET("api/sensores/temperatura")
+    Call<String> getTemperatura();
     @POST("api/auth/register")
     Call<ResponsePostUserRegister> registerUser(@Body PostUserRegister user);
     @POST("api/auth/login")
