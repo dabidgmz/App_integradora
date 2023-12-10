@@ -28,7 +28,7 @@ public class triggers extends AppCompatActivity {
         buttonsensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(triggers.this,Menu.class);
+                Intent intent = new Intent(triggers.this,principal.class);
                 startActivity(intent);
             }
         });
