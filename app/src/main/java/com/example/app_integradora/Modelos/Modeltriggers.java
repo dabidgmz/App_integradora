@@ -9,11 +9,19 @@ public class Modeltriggers {
     @SerializedName("value")
     private String value;
 
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public String getCreatedAt() {
         return createdAt;
     }
 
     public String getValue() {
         return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

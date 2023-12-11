@@ -16,6 +16,7 @@ public class viewmodeltriggers extends androidx.lifecycle.ViewModel {
         apiService = ApiService.getApiService();
     }
 
+
     public LiveData<Modeltriggers> obtenerDatosDelVentilador() {
         MutableLiveData<Modeltriggers> data = new MutableLiveData<>();
 
@@ -43,7 +44,10 @@ public class viewmodeltriggers extends androidx.lifecycle.ViewModel {
     MutableLiveData<Boolean> resultado = new MutableLiveData<>();
 
     public void enviarComandoVentilador(String comando) {
-        apiService.enviarComandoVentilador(comando)
+        Modeltriggers model = new Modeltriggers();
+        model.setValue(comando);
+
+        apiService.enviarComandoVentilador(model)
                 .enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
@@ -62,4 +66,6 @@ public class viewmodeltriggers extends androidx.lifecycle.ViewModel {
                     }
                 });
     }
+
+
 }
