@@ -20,6 +20,7 @@ public class triggers extends AppCompatActivity {
     private viewmodeltriggers viewModel;
 
     MutableLiveData<Boolean> resultado = new MutableLiveData<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +31,7 @@ public class triggers extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(viewmodeltriggers.class);
 
         ToggleButton toggleButtonVentilador = findViewById(R.id.toggleButtonVentilador);
-
-        viewModel = new ViewModelProvider(this).get(viewmodeltriggers.class);
+        ToggleButton toggleButtonCerradura = findViewById(R.id.toggleButtonCerradura);
 
         toggleButtonVentilador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +45,18 @@ public class triggers extends AppCompatActivity {
                 }
             }
         });
+        toggleButtonCerradura.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isChecked = toggleButtonCerradura.isChecked();
+
+                if (isChecked) {
+                    viewModel.enviarComandoCerradura("ON");
+                } else {
+                    viewModel.enviarComandoCerradura("OFF");
+                }
+            }
+        });
 
         buttontriggers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,16 +66,6 @@ public class triggers extends AppCompatActivity {
             }
         });
 
-        resultado.observe(this, new Observer<Boolean>() {
-                    @Override
-                    public void onChanged(Boolean success) {
-                        if (success == null) {
-                            mostrarMensajeError();
-                        } else {
-                            // Operación exitosa
-                        }
-                    }
-                });
         buttonsensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +80,18 @@ public class triggers extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-    }
+
+        viewModel.resultado.observe(this, new Observer<Boolean>() {
+        @Override
+        public void onChanged(Boolean success) {
+            if (success == null) {
+                mostrarMensajeError();
+            } else {
+                // Operación exitosa
+            }
+        }
+    });
+}
 
     private void mostrarMensajeError() {
         Snackbar.make(findViewById(android.R.id.content), "Hubo un error al enviar el comando", Snackbar.LENGTH_LONG).show();

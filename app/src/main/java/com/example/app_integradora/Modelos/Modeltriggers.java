@@ -1,5 +1,4 @@
 package com.example.app_integradora.Modelos;
-
 import com.google.gson.annotations.SerializedName;
 
 public class Modeltriggers {
@@ -8,6 +7,9 @@ public class Modeltriggers {
 
     @SerializedName("value")
     private String value;
+
+    @SerializedName("device_type")
+    private String deviceType;
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
@@ -23,5 +25,12 @@ public class Modeltriggers {
 
     public void setValue(String value) {
         this.value = value;
+    }
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    public String getDeviceType() {
+        return deviceType;
     }
 }
