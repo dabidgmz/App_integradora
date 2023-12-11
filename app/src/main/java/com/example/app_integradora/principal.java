@@ -5,22 +5,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.example.app_integradora.viewmodel.viewmodelprincipal;
 import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 public class principal extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    private viewmodelprincipal viewModelprincipal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        drawerLayout = findViewById(R.id.menu);
+        drawerLayout = findViewById(R.id.principal);
         Button buttonTriggers = findViewById(R.id.trigger);
         Button buttonSensors = findViewById(R.id.Sensor);
         LinearLayout ultrasonic = findViewById(R.id.ultrasonic);
@@ -29,8 +35,31 @@ public class principal extends AppCompatActivity {
         LinearLayout impact = findViewById(R.id.Impact);
         LinearLayout gas = findViewById(R.id.gas);
         LinearLayout luz = findViewById(R.id.luz);
+        TextView textViewValorUltra = findViewById(R.id.valorultra);
 
-        buttonTriggers.setOnClickListener(new View.OnClickListener() {
+        viewModelprincipal.getValorUltraLiveData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String valorUltra) {
+                // Actualizar el TextView con el nuevo valor
+                textViewValorUltra.setText(valorUltra);
+            }
+        });
+
+        viewmodelprincipal viewmodelprincipal = new ViewModelProvider(this).get(com.example.app_integradora.viewmodel.viewmodelprincipal.class);
+        viewmodelprincipal.getDatosUltraLiveData().observe(this, valorUltra -> {
+            if (valorUltra != null) {
+                textViewValorUltra.setText(valorUltra);
+            }
+        });
+        viewmodelprincipal.getValorUltraLiveData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String valorUltra) {
+                textViewValorUltra.setText(valorUltra);
+            }
+        });
+
+
+ buttonTriggers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(principal.this, triggers.class);

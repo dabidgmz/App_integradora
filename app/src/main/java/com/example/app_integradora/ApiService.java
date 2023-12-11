@@ -2,6 +2,7 @@ package com.example.app_integradora;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.example.app_integradora.Modelos.Modelprincipal;
 import com.example.app_integradora.Modelos.Modeltriggers;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -23,29 +24,30 @@ public interface ApiService {
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_PMQF47HxiFwMPiJLTlkDrOU6Ewp4"
+            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
     })
     @GET("feeds/ventilador/data?limit=1")
     Call<Modeltriggers> obtenerDatosDelVentilador();
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_PMQF47HxiFwMPiJLTlkDrOU6Ewp4"
+            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
     })
     @POST("feeds/ventilador/data")
     Call<Void> enviarComandoVentilador(@Body Modeltriggers comando);
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_PMQF47HxiFwMPiJLTlkDrOU6Ewp4"
+            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
     })
     @GET("feeds/led/data?limit=1")
     Call<Modeltriggers> obtenerDatosDeCerradura();
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_PMQF47HxiFwMPiJLTlkDrOU6Ewp4"
+            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
     })
     @POST("feeds/led/data")
     Call<Void> enviarComandoCerradura(@Body Modeltriggers comando);
+
 }
