@@ -90,9 +90,10 @@
           tools:layout_editor_absoluteY="611dp" />
    </androidx.constraintlayout.widget.ConstraintLayout>
    <com.google.android.material.navigation.NavigationView
-       android:id="@+id/naView"
        android:layout_width="wrap_content"
        android:layout_height="match_parent"
-       app:menu="@menu/navigation_menu"
+       app:headerLayout="@layout/header"
+       app:menu="@menu/main_menu"
+       android:id="@+id/nav_view"
        android:layout_gravity="start"/>
 </androidx.drawerlayout.widget.DrawerLayout>

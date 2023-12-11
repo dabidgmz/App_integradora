@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Cargando: " + millisUntilFinished / 1000, Toast.LENGTH_SHORT).show();
             }
 
-            @Override
+            @Override             //modificado para mandarlo directo a la principal
             public void onFinish() {
-                Intent intent = new Intent(MainActivity.this,inicio.class);
+                Intent intent = new Intent(MainActivity.this, login.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "iniciando", Toast.LENGTH_SHORT).show();
             }
