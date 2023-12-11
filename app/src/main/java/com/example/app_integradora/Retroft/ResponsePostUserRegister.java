@@ -3,15 +3,14 @@ package com.example.app_integradora.Retroft;
 public class ResponsePostUserRegister {
 
     private String msg;
-    private Userdata userdata;
+    private UserData userData;
 
-
-    public Userdata getUserdata() {
-        return userdata;
+    public UserData getUserData() {
+        return userData;
     }
 
-    public void setUserdata(Userdata userdata) {
-        this.userdata = userdata;
+    public void setUserData(UserData userData) {
+        this.userData = userData;
     }
 
     public String getMsg() {
@@ -22,7 +21,7 @@ public class ResponsePostUserRegister {
         this.msg = msg;
     }
 
-    public class Userdata{
+    public static class UserData {
 
         private String name;
         private String email;
@@ -30,7 +29,6 @@ public class ResponsePostUserRegister {
         private String updated_at;
         private String created_at;
         private int id;
-
 
         public String getName() {
             return name;
@@ -79,7 +77,5 @@ public class ResponsePostUserRegister {
         public void setId(int id) {
             this.id = id;
         }
-
     }
-
 }

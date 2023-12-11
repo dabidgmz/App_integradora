@@ -1,15 +1,16 @@
 package com.example.app_integradora;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.app_integradora.Retroft.PostUserRegister;
 import com.example.app_integradora.Retroft.ResponsePostUserRegister;
@@ -36,45 +37,73 @@ public class User_Register extends AppCompatActivity {
 
         buttonRegistrarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String name = nombre.getText().toString();
-                String lastName = apellido.getText().toString();
-                String phone = telefono.getText().toString();
-                String email = correo.getText().toString();
-                String password = contrasena.getText().toString();
-                String passwordConfirmation = confirmarContrasena.getText().toString();
-                String mat = matricula.getText().toString();
-                String depart = departamento.getText().toString();
+            public void onClick(View v) {
+                String nombreStr = nombre.getText().toString().trim();
+                String apellidoStr = apellido.getText().toString().trim();
+                String telefonoStr = telefono.getText().toString().trim();
+                String correoStr = correo.getText().toString().trim();
+                String contrasenaStr = contrasena.getText().toString().trim();
+                String confirmarContrasenaStr = confirmarContrasena.getText().toString().trim();
+                String matriculaStr = matricula.getText().toString().trim();
+                String departamentoStr = departamento.getText().toString().trim();
 
-                if (password.equals(passwordConfirmation)) {
-                    PostUserRegister post = new PostUserRegister(name, lastName, phone, email, password, depart, passwordConfirmation);
-                    viewModel.registerUser(post);
-                } else {
-                    Toast.makeText(User_Register.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        viewModel.getRegisterResult().observe(this, new Observer<ResponsePostUserRegister>() {
-            @Override
-            public void onChanged(ResponsePostUserRegister response) {
-                if (response != null) {
-                    Toast.makeText(User_Register.this, response.getMsg(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), register_empresa.class);
-                    startActivity(intent);
-                    finish();;
-                } else {
-                    Toast.makeText(User_Register.this, "Registro denegado", Toast.LENGTH_SHORT).show();
+                // Validaciones básicas
+                if (TextUtils.isEmpty(nombreStr) || nombreStr.length() < 3) {
+                    showToast("Nombre inválido, debe tener al menos 3 caracteres");
+                    return;
                 }
 
-            }
-        });
+                if (!TextUtils.isDigitsOnly(matriculaStr)) {
+                    showToast("Matrícula inválida, debe contener solo números");
+                    return;
+                }
 
-        viewModel.getError().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String error) {
-                Toast.makeText(User_Register.this, "Error de conexión: " + error, Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(telefonoStr) || telefonoStr.length() != 10) {
+                    showToast("Teléfono inválido, debe contener 10 dígitos");
+                    return;
+                }
+
+                if (!Patterns.EMAIL_ADDRESS.matcher(correoStr).matches()) {
+                    showToast("Correo electrónico inválido");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(contrasenaStr) || contrasenaStr.length() < 6) {
+                    showToast("Contraseña inválida, debe tener al menos 6 caracteres");
+                    return;
+                }
+
+                if (!contrasenaStr.equals(confirmarContrasenaStr)) {
+                    showToast("Las contraseñas no coinciden");
+                    return;
+                }
+
+                PostUserRegister user = new PostUserRegister(nombreStr, apellidoStr, correoStr, departamentoStr, telefonoStr, matriculaStr, contrasenaStr, confirmarContrasenaStr);
+                viewModel.registerUser(user);
+                viewModel.getRegisterResult().observe(User_Register.this, new Observer<ResponsePostUserRegister>() {
+                    @Override
+                    public void onChanged(ResponsePostUserRegister response) {
+                        if (response != null && response.getMsg().equals("Registro correcto")) {
+                            showToast("Registro exitoso. Por favor, revise su correo electrónico.");
+                            Intent intent = new Intent(User_Register.this, agregar_empresa1.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            showToast("Error en el registro. Por favor, inténtelo de nuevo.");
+                        }
+                    }
+                });
+                viewModel.getError().observe(User_Register.this, new Observer<String>() {
+                    @Override
+                    public void onChanged(String errorMessage) {
+                        showToast("Error: " + errorMessage);
+                    }
+                });
             }
         });
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

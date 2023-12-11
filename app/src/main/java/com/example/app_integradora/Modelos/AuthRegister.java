@@ -24,7 +24,9 @@ public class AuthRegister {
                 .build();
 
         ApiRequest apiRequest = retrofit.create(ApiRequest.class);
-        PostUserRegister user = new PostUserRegister(name, lastName, phone, email, password, department, passwordConfirmation);
+
+        // Make sure to provide all the necessary parameters in the constructor
+        PostUserRegister user = new PostUserRegister(name, lastName, phone, email, password, department, passwordConfirmation, ""); // add any additional parameter if required
 
         Call<ResponsePostUserRegister> call = apiRequest.registerUser(user);
 
@@ -32,7 +34,7 @@ public class AuthRegister {
             @Override
             public void onResponse(Call<ResponsePostUserRegister> call, Response<ResponsePostUserRegister> response) {
                 if (response.isSuccessful()) {
-                    Log.d("AuthRegister", "Registration successful");
+                    Log.d("AuthRegister", "Registration successful: " + response.body().getMsg());
                     Intent intent = new Intent(context, User_Register.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     context.startActivity(intent);
