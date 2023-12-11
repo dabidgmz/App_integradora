@@ -3,23 +3,15 @@ package com.example.app_integradora.Modelos;
 import com.google.gson.annotations.SerializedName;
 
 public class Modelprincipal {
-
-        @SerializedName("value")
-        private String valorUltra;
-
-
-    public Modelprincipal(String valorUltra) {
-        this.valorUltra = valorUltra;
-    }
+    @SerializedName("value")
+    private String value;
 
     public String getValue() {
-        return valorUltra;
+        return value;
     }
 
-    public void setValorUltra(String valorUltra) {
-    }
-
-    public String getValorUltra() { return valorUltra;
-
+    public void setValue(String value) {
+        this.value = value;
     }
 }
+

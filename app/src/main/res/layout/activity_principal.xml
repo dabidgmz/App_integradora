@@ -141,7 +141,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/valorultra"
+                                android:id="@+id/ult1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
@@ -194,10 +194,11 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/valortemp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
-                                android:text="47°"
+                                android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="40dp"
                                 android:textStyle="bold" />
@@ -258,6 +259,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/valorimp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
@@ -308,6 +310,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/valorgas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
@@ -371,6 +374,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/valorhum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
@@ -421,6 +425,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/valorluz"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"

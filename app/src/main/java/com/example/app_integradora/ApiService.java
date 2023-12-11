@@ -24,28 +24,28 @@ public interface ApiService {
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
+            "X-AIO-Key: aio_dnLK52KIOyfcUx6QcY37EXNyHSWy"
     })
     @GET("feeds/ventilador/data?limit=1")
     Call<Modeltriggers> obtenerDatosDelVentilador();
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
+            "X-AIO-Key:aio_dnLK52KIOyfcUx6QcY37EXNyHSWy"
     })
     @POST("feeds/ventilador/data")
     Call<Void> enviarComandoVentilador(@Body Modeltriggers comando);
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
+            "X-AIO-Key:aio_dnLK52KIOyfcUx6QcY37EXNyHSWy"
     })
     @GET("feeds/led/data?limit=1")
     Call<Modeltriggers> obtenerDatosDeCerradura();
 
     @Headers({
             "Content-Type: application/json",
-            "X-AIO-Key: aio_KxuJ02enTG1A6CqUOmJwAXqe3LH3"
+            "X-AIO-Key: aio_dnLK52KIOyfcUx6QcY37EXNyHSWy"
     })
     @POST("feeds/led/data")
     Call<Void> enviarComandoCerradura(@Body Modeltriggers comando);

@@ -27,29 +27,5 @@ public class viewmodelprincipal extends ViewModel {
         return datosUltraLiveData;
     }
 
-    public void obtenerDatosDelUltrasonico() {
-        AdafruitApi api = AdafruitApi.getAdafruitApi();
-        Call<Modelprincipal> call = api.obtenerDatosDelUltrasonico();
 
-        call.enqueue(new Callback<Modelprincipal>() {
-            @Override
-            public void onResponse(Call<Modelprincipal> call, Response<Modelprincipal> response) {
-                if (response.isSuccessful()) {
-                    Modelprincipal model = response.body();
-                    String valorUltra = model.getValorUltra();
-
-                    Log.d("API_RESPONSE", "Valor Ultra: " + valorUltra);  // Imprime la respuesta en el log
-
-                    valorUltraLiveData.setValue(valorUltra);  // Actualiza el valor de valorUltraLiveData
-                } else {
-                    Log.d("API_RESPONSE", "Response not successful. Code: " + response.code());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Modelprincipal> call, Throwable t) {
-                // Maneja el error
-            }
-        });
-    }
 }
