@@ -42,7 +42,7 @@ public class principal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     private Handler mHandler;
-    private static final int INTERVALO_DE_ACTUALIZACION = 10000; // 60 segundos
+    private static final int INTERVALO_DE_ACTUALIZACION = 10000;
 
     private viewmodelprincipal viewModelprincipal;
     private TextView textViewValorUltra;
@@ -79,10 +79,7 @@ public class principal extends AppCompatActivity {
                 .baseUrl(AdafruitApi.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         AdafruitApi adafruitApi = retrofit.create(AdafruitApi.class);
-
-        // Inicia la tarea de actualización periódica
         mHandler = new Handler();
         startRepeatingTask();
 
@@ -238,16 +235,13 @@ public class principal extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                // Realiza la petición de datos
                 realizarPeticion();
 
             } finally {
-                // Programa la siguiente ejecución después de INTERVALO_DE_ACTUALIZACION milisegundos
                 mHandler.postDelayed(mStatusChecker, INTERVALO_DE_ACTUALIZACION);
             }
         }
     };
-
     void startRepeatingTask() {
         mStatusChecker.run();
     }
