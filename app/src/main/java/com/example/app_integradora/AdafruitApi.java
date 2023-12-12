@@ -16,25 +16,10 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface AdafruitApi {
-    String BASE_URL = "https://io.adafruit.com/api/v2/1029384756/";
+    String BASE_URL = "http://3.138.171.241/api/";
 
-    @Headers({
-            "X-AIO-Key:aio_QiXB29whgsneUo8YTMRJfPpYU7Sw",
-            "Content-Type: application/json"
-    })
-    @GET("feeds/ultrasonico/data?limit=1")
-    Call<List<Modelprincipal>> getUltrasonicoData();
 
-    @GET("feeds/temperatura/data?limit=1")
-    Call<List<Modelprincipal>> gettempData();
-    @GET("feeds/humedad/data?limit=1")
-    Call<List<Modelprincipal>> gethumedadData();
-    @GET("feeds/gas/data?limit=1")
-    Call<List<Modelprincipal>> getgasData();
+    @GET("feeds/")
+    Call<Modelprincipal> obtenerDatos();
 
-    @GET("feeds/luz/data?limit=1")
-    Call<List<Modelprincipal>> getluzData();
-
-    @GET("feeds/impacto/data?limit=1")
-    Call<List<Modelprincipal>> getimpactoData();
 }
