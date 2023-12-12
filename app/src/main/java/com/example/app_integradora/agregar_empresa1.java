@@ -61,7 +61,7 @@ public class agregar_empresa1 extends AppCompatActivity {
             public void onChanged(ResponsePostEmpresa response) {
                 if (response != null) {
                     Toast.makeText(agregar_empresa1.this, "Empresa registrada exitosamente", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(agregar_empresa1.this, new_menu.class);
+                    Intent intent = new Intent(agregar_empresa1.this, principal.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(agregar_empresa1.this, "Error registering empresa", Toast.LENGTH_SHORT).show();

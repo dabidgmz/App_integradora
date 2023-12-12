@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
@@ -13,6 +14,8 @@ import com.google.android.material.navigation.NavigationView;
 public class sensor_luz extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    private Handler mHandler;
+    private static final int INTERVALO_DE_ACTUALIZACION = 10000; // 60 segundos
     ActionBarDrawerToggle drawerToggle;
 
     @Override
