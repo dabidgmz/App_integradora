@@ -3,15 +3,16 @@ package com.example.app_integradora.Modelos;
 import com.google.gson.annotations.SerializedName;
 
 public class Modelprincipal {
-    @SerializedName("value")
+    private String feed_key;
     private String value;
+
+    public String getFeedKey() {
+        return feed_key;
+    }
 
     public String getValue() {
         return value;
     }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }
+
 

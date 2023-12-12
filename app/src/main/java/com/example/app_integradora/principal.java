@@ -52,7 +52,6 @@ public class principal extends AppCompatActivity {
         LinearLayout impact = findViewById(R.id.Impact);
         LinearLayout gas = findViewById(R.id.gas);
         LinearLayout luz = findViewById(R.id.luz);
-
         textViewValorUltra = findViewById(R.id.ult1);
         textViewValorTemp = findViewById(R.id.valortemp);
         textViewValorHum = findViewById(R.id.valorhum);

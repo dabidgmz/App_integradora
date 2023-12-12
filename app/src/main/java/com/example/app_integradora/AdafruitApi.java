@@ -19,7 +19,7 @@ public interface AdafruitApi {
     String BASE_URL = "https://io.adafruit.com/api/v2/1029384756/";
 
     @Headers({
-            "X-AIO-Key: aio_dnLK52KIOyfcUx6QcY37EXNyHSWy",
+            "X-AIO-Key:aio_QiXB29whgsneUo8YTMRJfPpYU7Sw",
             "Content-Type: application/json"
     })
     @GET("feeds/ultrasonico/data?limit=1")
