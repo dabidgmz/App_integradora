@@ -7,16 +7,11 @@
     android:id="@+id/Sensor_impacto"
     tools:context=".Sensor_impacto">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="183dp" />
 
     <!--Menu-->
     <LinearLayout
@@ -52,59 +47,45 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/rectangle_2"
-        android:layout_width="174dp"
-        android:layout_height="30dp"
-        android:backgroundTint="@color/amarillo_pollito"
-        android:background="@drawable/rectangle_2"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toBottomOf="@+id/linearMenu"
-        app:layout_constraintVertical_bias="0.234" />
+        <RelativeLayout
+            android:id="@+id/relativeLayoutRectangle2"
+            android:layout_width="174dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/amarillo_pollito"
+            android:background="@drawable/rectangle_2"
+            android:layout_below="@id/linearMenu"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true">
 
-    <View
-        android:id="@+id/rectangle_3"
-        android:layout_width="174dp"
-        android:layout_height="30dp"
-        android:backgroundTint="@color/amarillo_pollito"
-        android:background="@drawable/rectangle_2"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toBottomOf="@+id/linearMenu"
-        app:layout_constraintVertical_bias="0.68" />
+            <TextView
+                android:id="@+id/Gas_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|top"
+                android:text="@string/id"
+                android:textAppearance="@style/temperatura"
+                android:layout_marginTop="10dp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/Gas_id"
-        android:layout_width="155dp"
-        android:layout_height="21dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/id"
-        android:textAppearance="@style/temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine9"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideLine5"
-        app:layout_constraintTop_toTopOf="@+id/guideLine8"
-        app:layout_constraintVertical_bias="1.0" />
+        <RelativeLayout
+            android:id="@+id/relativeLayoutRectangle3"
+            android:layout_width="174dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/amarillo_pollito"
+            android:background="@drawable/rectangle_2"
+            android:layout_below="@id/relativeLayoutRectangle2"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/Gas"
-        android:layout_width="155dp"
-        android:layout_height="21dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/sensor_impacto"
-        android:textAppearance="@style/temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine7"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideLine5"
-        app:layout_constraintTop_toTopOf="@+id/guideLine6"
-        app:layout_constraintVertical_bias="1.0" />
+            <TextView
+                android:id="@+id/Gas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|top"
+                android:text="@string/sensor_impacto"
+                android:textAppearance="@style/temperatura"
+                android:layout_marginTop="10dp"/>
+        </RelativeLayout>
 
     <!--cardview que manda una alerta cuando hay un impacto-->
     <androidx.cardview.widget.CardView
@@ -113,88 +94,31 @@
         android:layout_height="100dp"
         app:cardBackgroundColor="@color/amarillo_pollito"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toTopOf="@+id/guideLine2">
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/alerta_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="236dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="578dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="81dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="536dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="356dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="56dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="102dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="286dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="128dp" />
-
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="283dp"
         android:layout_height="245dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine2"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toTopOf="@+id/guideLine1"
+        android:layout_below="@id/relativeLayoutRectangle3"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/impacto" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

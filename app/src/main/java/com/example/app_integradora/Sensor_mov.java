@@ -106,7 +106,8 @@ public class Sensor_mov extends AppCompatActivity {
                         String value = feedData.getValue();
                         switch (feedKey) {
                             case "ultrasonico":
-                                textViewSensorMov.setText(value);
+                                String primerosCuatroDigitos = value.length() >= 4 ? value.substring(0, 4) : value;
+                                textViewSensorMov.setText(primerosCuatroDigitos);
                                 break;
                             default:
                                 break;
