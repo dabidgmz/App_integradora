@@ -4,15 +4,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-//import com.github.mikephil.charting.charts.LineChart
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
-import com.ekn.gruzer.gaugelibrary.ArcGauge;
 import com.example.app_integradora.Modelos.Modelprincipal;
+
+import org.w3c.dom.Text;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,41 +22,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class sensor_gas extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    ArcGauge idMedidor;
-    com.ekn.gruzer.gaugelibrary.Range Rango_1,Rango_2,Rango_3;
-    int SetearGrafica;
     private Handler mHandler;
     private static final int INTERVALO_DE_ACTUALIZACION = 10000; // 10 segundos
     ActionBarDrawerToggle drawerToggle;
+    TextView textViewSensorGas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor_gas);
 
-        idMedidor = findViewById(R.id.idMedidor);
         drawerLayout = findViewById(R.id.sensor_gas);
+        textViewSensorGas = findViewById(R.id.GasValue);
 
-
-        Rango_1 = new com.ekn.gruzer.gaugelibrary.Range();
-        Rango_2 = new com.ekn.gruzer.gaugelibrary.Range();
-        Rango_3 = new com.ekn.gruzer.gaugelibrary.Range();
-
-        Rango_1.setFrom(0);Rango_1.setTo(100);
-        Rango_2.setFrom(100);Rango_2.setTo(150);
-        Rango_3.setFrom(150);Rango_3.setTo(200);
-
-        Rango_1.setColor(Color.GREEN);
-        Rango_2.setColor(Color.YELLOW);
-        Rango_3.setColor(Color.RED);
-
-        idMedidor.setMinValue(0);
-        idMedidor.setMaxValue(200);
-        idMedidor.setValue(0);
-
-        idMedidor.addRange(Rango_1);
-        idMedidor.addRange(Rango_2);
-        idMedidor.addRange(Rango_3);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(AdafruitApi.BASE_URL)
@@ -132,7 +111,7 @@ public class sensor_gas extends AppCompatActivity {
                         String value = feedData.getValue();
 
                         if ("gas".equals(feedKey)) {
-                            idMedidor.setValue(Float.parseFloat(value));
+                            textViewSensorGas.setText(value);
                             break;
                         }
                     }
