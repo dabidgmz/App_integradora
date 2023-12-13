@@ -92,8 +92,8 @@
             android:id="@+id/circleView"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:background="@drawable/circle_background"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_background" />
 
         <!-- ImageView centrado -->
         <ImageView
@@ -108,12 +108,15 @@
             android:id="@+id/humedar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="--%"
-            android:textSize="20sp"
-            android:textColor="@color/black"
+            android:layout_alignTop="@+id/image_term"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_toEndOf="@+id/image_term"
-            android:layout_alignTop="@+id/image_term"/>
+            android:text="--%"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/temp"
@@ -134,8 +137,17 @@
             android:layout_width="265dp"
             android:layout_height="100dp"
             app:cardBackgroundColor="@color/amarillo_pollito"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/circleView"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/btnGraph"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/dataanalysis"
+            android:layout_below="@id/alerta"
             android:layout_centerHorizontal="true"/>
 
 

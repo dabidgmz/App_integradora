@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
@@ -14,6 +15,8 @@ public class Sensor_impacto extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+    private Handler mHandler;
+    private static final int INTERVALO_DE_ACTUALIZACION = 10000; // 10 segundos
 
 
     @Override

@@ -6,12 +6,14 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.app_integradora.Retroft.ApiRequest;
-import com.google.android.material.navigation.NavigationView;
+import com.example.app_integradora.Modelos.Modelprincipal;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,18 +22,36 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Sensor_humedad extends AppCompatActivity {
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+
+    private TextView textViewValorTemp;
+    private TextView textViewValorHum;
+    private CardView cardViewAlerta;
+    private Handler mHandler;
+    private static final int INTERVALO_DE_ACTUALIZACION = 10000; // 10 segundos
     ActionBarDrawerToggle drawerToggle;
+    DrawerLayout drawerLayout;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor_humedad);
 
-        //configuracion del menu
-
+        textViewValorTemp = findViewById(R.id.temp);
+        textViewValorHum = findViewById(R.id.humedar);
+        cardViewAlerta = findViewById(R.id.alerta);
         drawerLayout = findViewById(R.id.Sensor_humedad);
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(AdafruitApi.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        AdafruitApi adafruitApi = retrofit.create(AdafruitApi.class);
+        mHandler = new Handler();
+        startRepeatingTask();
+
 
         findViewById(R.id.imagMenu).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,61 +60,8 @@ public class Sensor_humedad extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-
-        //TERMINA
-
-        // TextViews
-        TextView humedadTextView = findViewById(R.id.humedar);
-        TextView temperaturaTextView = findViewById(R.id.temp);
-
-        CardView alertaCardView = findViewById(R.id.alerta);
-        TextView alertaTextView = new TextView(this);
-
-        alertaCardView.addView(alertaTextView);
-
-        ApiRequest apiRequest = new Retrofit.Builder()
-                .baseUrl("http://3.138.171.241")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ApiRequest.class);
-
-        apiRequest.getHumedad().enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()){
-                    String humedad = response.body();
-                    humedadTextView.setText(humedad);
-                    if(Integer.parseInt(humedad.replace("%", ""))> 100){
-                        alertaTextView.setText("¡Alerta! La humedad ha superado el 100%");
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
-            }
-        });
-
-        apiRequest.getTemperatura().enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()){
-                    String temperatura = response.body();
-                    temperaturaTextView.setText(temperatura);
-                    if (Integer.parseInt(temperatura.replace("C°", "")) > 30){
-                        alertaTextView.setText("¡Alerta! La temperatura ha superado los 30 grados");
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
-            }
-        });
+        //menu
     }
-    //Tambien agregado
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
@@ -102,5 +69,78 @@ public class Sensor_humedad extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+    Runnable mStatusChecker = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                realizarPeticion();
+
+            } finally {
+                mHandler.postDelayed(mStatusChecker, INTERVALO_DE_ACTUALIZACION);
+            }
+        }
+    };
+
+
+    void startRepeatingTask() {
+        mStatusChecker.run();
+    }
+
+    void stopRepeatingTask() {
+        mHandler.removeCallbacks(mStatusChecker);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Detiene la tarea de actualización periódica al destruir la actividad
+        stopRepeatingTask();
+    }
+
+    private void realizarPeticion() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(AdafruitApi.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        AdafruitApi adafruitApi = retrofit.create(AdafruitApi.class);
+
+        Call<Modelprincipal> call = adafruitApi.obtenerDatos();
+        call.enqueue(new Callback<Modelprincipal>() {
+            @Override
+            public void onResponse(Call<Modelprincipal> call, Response<Modelprincipal> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Modelprincipal model = response.body();
+
+                    for (Modelprincipal.FeedData feedData : model.getData()) {
+                        String feedKey = feedData.getFeedKey();
+                        String value = feedData.getValue();
+
+                        switch (feedKey) {
+                            case "temperatura":
+                                textViewValorTemp.setText(value);
+                                if (Float.parseFloat(value) > 30) {
+                                    // Mostrar mensaje de advertencia en el CardView
+                                }
+                                break;
+                            case "humedad":
+                                textViewValorHum.setText(value);
+                                if (Float.parseFloat(value) > 70) {
+                                    // Mostrar mensaje de advertencia en el CardView
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Modelprincipal> call, Throwable t) {
+                Log.e("Error", "Error en la llamada a la API", t);
+            }
+        });
     }
 }

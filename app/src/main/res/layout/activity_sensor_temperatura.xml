@@ -43,10 +43,10 @@
             android:id="@+id/temperatura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="24°C"
-            android:textSize="40sp"
             android:textColor="@color/black"
-            android:layout_centerInParent="true" />
+            android:textSize="40sp" />
 
         <!-- Texto de nombre y ID -->
         <TextView

@@ -7,18 +7,13 @@
     android:id="@+id/sensor_gas"
     tools:context=".sensor_gas">
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="183dp" />
+
 
     <!--Menu-->
     <LinearLayout
@@ -54,145 +49,74 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/rectangle_2"
+    <RelativeLayout
+        android:id="@+id/relativeLayoutRectangle2"
         android:layout_width="174dp"
         android:layout_height="30dp"
         android:backgroundTint="@color/amarillo_pollito"
         android:background="@drawable/rectangle_2"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toBottomOf="@+id/linearMenu"
-        app:layout_constraintVertical_bias="0.234" />
+        android:layout_below="@id/linearMenu"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true">
 
-    <View
-        android:backgroundTint="@color/amarillo_pollito"
-        android:id="@+id/rectangle_3"
+        <TextView
+            android:id="@+id/Gas_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|top"
+            android:text="@string/id"
+            android:textAppearance="@style/temperatura"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutRectangle3"
         android:layout_width="174dp"
         android:layout_height="30dp"
+        android:backgroundTint="@color/amarillo_pollito"
         android:background="@drawable/rectangle_2"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toBottomOf="@+id/linearMenu"
-        app:layout_constraintVertical_bias="0.68" />
+        android:layout_below="@id/relativeLayoutRectangle2"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/Gas_id"
-        android:layout_width="155dp"
-        android:layout_height="21dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/id"
-        android:textAppearance="@style/temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine9"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideLine5"
-        app:layout_constraintTop_toTopOf="@+id/guideLine8"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/Gas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|top"
+            android:text="@string/gas"
+            android:textAppearance="@style/temperatura"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/Gas"
-        android:layout_width="155dp"
-        android:layout_height="21dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/gas"
-        android:textAppearance="@style/temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/guideLine7"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideLine5"
-        app:layout_constraintTop_toTopOf="@+id/guideLine6"
-        app:layout_constraintVertical_bias="1.0" />
+    <com.ekn.gruzer.gaugelibrary.ArcGauge
+        android:id="@+id/idMedidor"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/relativeLayoutRectangle3"
+        android:layout_marginTop="110dp"
+        android:layout_centerHorizontal="true"/>
 
-    <!--cardview que manda una alerta cuando el gas llega a un sierto parametro-->
     <androidx.cardview.widget.CardView
         android:id="@+id/alerta"
         android:layout_width="265dp"
         android:layout_height="100dp"
-        app:cardBackgroundColor="@color/amarillo_pollito"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideLine3"
-        app:layout_constraintStart_toStartOf="@+id/guideLine4"
-        app:layout_constraintTop_toTopOf="@+id/guideLine2">
+        android:layout_below="@id/idMedidor"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        app:cardBackgroundColor="@color/amarillo_pollito"/>
 
-    </androidx.cardview.widget.CardView>
+    <!-- btnGraph ImageView -->
+    <ImageView
+        android:id="@+id/btnGraph"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/dataanalysis"
+        android:layout_below="@id/alerta"
+        android:layout_centerHorizontal="true"/>
 
-    <!--Estoy tratando de usar una libreria para mostrar graficas-->
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="236dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="153dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="81dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="536dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="356dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="56dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="102dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="286dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="128dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu"
-        android:id="@+id/nav_view"
-        android:layout_gravity="start"/>
+</RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
