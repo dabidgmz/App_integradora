@@ -280,10 +280,12 @@ public class principal extends AppCompatActivity {
 
                         switch (feedKey) {
                             case "temperatura":
-                                textViewValorTemp.setText(value);
+                                String primerosCuatroDigitosTemp = value.length() >= 4 ? value.substring(0, 4) : value;
+                                textViewValorTemp.setText(primerosCuatroDigitosTemp);
                                 break;
                             case "humedad":
-                                textViewValorHum.setText(value);
+                                String primerosCuatroDigitosHum = value.length() >= 4 ? value.substring(0, 4) : value;
+                                textViewValorHum.setText(primerosCuatroDigitosHum);
                                 break;
                             case "gas":
                                 textViewValorGas.setText(value);

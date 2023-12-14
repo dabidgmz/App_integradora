@@ -107,7 +107,8 @@ public class Sensor_temperatura extends AppCompatActivity {
                         String value = feedData.getValue();
                         switch (feedKey) {
                             case "temperatura":
-                                textSensorTemp.setText(value);
+                                String primerosCuatroDigitosTemp = value.length() >= 4 ? value.substring(0, 4) : value;
+                                textSensorTemp.setText(primerosCuatroDigitosTemp);
                                 break;
                             default:
                                 break;

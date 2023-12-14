@@ -211,14 +211,16 @@ public class Sensor_humedad extends AppCompatActivity {
 
                         switch (feedKey) {
                             case "temperatura":
-                                textViewValorTemp.setText(value);
-                                if (Float.parseFloat(value) > 30) {
+                                String primerosCuatroDigitosTemp = value.length() >= 4 ? value.substring(0, 4) : value;
+                                textViewValorTemp.setText(primerosCuatroDigitosTemp);
+                                if (Float.parseFloat(primerosCuatroDigitosTemp) > 30) {
                                     // Mostrar mensaje de advertencia en el CardView
                                 }
                                 break;
                             case "humedad":
-                                textViewValorHum.setText(value);
-                                if (Float.parseFloat(value) > 70) {
+                                String primerosCuatroDigitosHum = value.length() >= 4 ? value.substring(0, 4) : value;
+                                textViewValorHum.setText(primerosCuatroDigitosHum);
+                                if (Float.parseFloat(primerosCuatroDigitosHum) > 70) {
                                     // Mostrar mensaje de advertencia en el CardView
                                 }
                                 break;
