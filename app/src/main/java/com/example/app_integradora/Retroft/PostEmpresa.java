@@ -1,11 +1,7 @@
 package com.example.app_integradora.Retroft;
 
 public class PostEmpresa {
-
-    public PostEmpresa(String nombre) {
-        this.nombre = nombre;
-    }
-
+    String nombre;
     public String getNombre() {
         return nombre;
     }
@@ -14,5 +10,12 @@ public class PostEmpresa {
         this.nombre = nombre;
     }
 
-    public String nombre;
+
+    public PostEmpresa(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+
+
 }

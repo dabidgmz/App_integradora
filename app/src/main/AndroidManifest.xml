@@ -34,9 +34,6 @@
             android:name=".Sensor_temperatura"
             android:exported="false" />
         <activity
-            android:name=".bienvenida"
-            android:exported="false" />
-        <activity
             android:name=".sensor_gas"
             android:exported="false" />
         <activity

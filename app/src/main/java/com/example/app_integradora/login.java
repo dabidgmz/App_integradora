@@ -1,6 +1,7 @@
 package com.example.app_integradora;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import com.example.app_integradora.Retroft.ResponsePostUserLogin;
 import com.example.app_integradora.viewmodel.viewmodelogin;
 
 public class login extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor Myeditor; //poner token
 
     private viewmodelogin viewModel;  // Declare viewmodelogin instance
 
@@ -24,6 +27,10 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+        sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        Myeditor = sharedPreferences.edit();
 
         Button signInButton = findViewById(R.id.buttonSignIn);
         Button signUpButton = findViewById(R.id.buttonSignUp);
@@ -62,7 +69,9 @@ public class login extends AppCompatActivity {
             public void onChanged(ResponsePostUserLogin response) {
                 if (response != null) {
                     Toast.makeText(login.this, "¡Bienvenido!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(login.this, principal.class));
+                    Myeditor.putString("token", response.getToken_type()+ "" +response.getAccess_token());
+                    Myeditor.apply();
+                    startActivity(new Intent(login.this, register_empresa.class));
                     finish();
                 } else {
                     Toast.makeText(login.this, "Login denegado", Toast.LENGTH_SHORT).show();

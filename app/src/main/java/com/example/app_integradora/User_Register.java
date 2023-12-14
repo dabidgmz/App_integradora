@@ -85,7 +85,7 @@ public class User_Register extends AppCompatActivity {
                     public void onChanged(ResponsePostUserRegister response) {
                         if (response != null && response.getMsg().equals("Registro correcto")) {
                             showToast("Registro exitoso. Por favor, revise su correo electrónico.");
-                            Intent intent = new Intent(User_Register.this, agregar_empresa1.class);
+                            Intent intent = new Intent(User_Register.this, login.class);
                             startActivity(intent);
                             finish();
                         } else {
