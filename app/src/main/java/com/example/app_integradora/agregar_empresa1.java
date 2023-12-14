@@ -30,6 +30,7 @@ public class agregar_empresa1 extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +128,16 @@ public class agregar_empresa1 extends AppCompatActivity {
 
         });
 
+        Button buttonAgregarVitrina = findViewById(R.id.buttonAgregarVitrina); // Asegúrate de que el ID sea correcto
+
+        buttonAgregarVitrina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Lógica a ejecutar cuando se haga clic en el botón de agregar vitrina
+                // Por ejemplo, puedes iniciar una nueva actividad aquí
+                agregarvitrina(view);
+            }
+        });
         EditText nombreEditText = findViewById(R.id.editTextNombre);
         Button agregarempresa = findViewById(R.id.buttonAgregarEmpresa);
 
@@ -168,6 +179,10 @@ public class agregar_empresa1 extends AppCompatActivity {
         });
     }
 
+    public void agregarvitrina(View view) {
+        // Ejemplo de lógica: Mostrar un mensaje de éxito
+        Toast.makeText(this, "Vitrina agregada correctamente", Toast.LENGTH_SHORT).show();
+    }
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerVisible(GravityCompat.START)) {

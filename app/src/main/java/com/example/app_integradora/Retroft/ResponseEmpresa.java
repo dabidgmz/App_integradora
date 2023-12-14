@@ -10,6 +10,7 @@ public class ResponseEmpresa {
     String message;
     Data data;
 
+
     public String getMessage() {
         return message;
     }
@@ -26,7 +27,7 @@ public class ResponseEmpresa {
         this.data = data;
     }
 
-    class Data{
+    public class Data{
         String nombre;
         String uptaded_at;
         String created_at;

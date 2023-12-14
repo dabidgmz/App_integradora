@@ -40,7 +40,7 @@ public class register_empresa extends AppCompatActivity {
         buttonOmitir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(register_empresa.this, login.class);
+                Intent intent = new Intent(register_empresa.this, principal.class);
                 startActivity(intent);
             }
         });

@@ -69,7 +69,7 @@
                 android:textColor="@color/black" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinnerEmpresas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/editTextNombrev"
@@ -79,7 +79,7 @@
 
 
             <Button
-                android:id="@+id/buttonAgregarEmpresa"
+                android:id="@+id/buttonAgregarVitrina"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spinner"
