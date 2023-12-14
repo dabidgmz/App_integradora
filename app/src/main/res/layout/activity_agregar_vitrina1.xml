@@ -58,6 +58,18 @@
                 />
 
             <EditText
+                android:id="@+id/editTextDescripcionVitrina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinnerEmpresas"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="@color/amarillo_pollito"
+                android:hint="Descripción"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/black" />
+
+            <EditText
                 android:id="@+id/editTextNombrev"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,7 +94,7 @@
                 android:id="@+id/buttonAgregarVitrina"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/spinner"
+                android:layout_below="@id/editTextDescripcionVitrina"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25dp"
                 android:backgroundTint="@color/amarillo_pollito"
