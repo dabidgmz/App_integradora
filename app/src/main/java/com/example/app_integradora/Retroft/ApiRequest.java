@@ -26,5 +26,9 @@ Call<ResponsePostUserMe> meUser(@Header("Authorization") String token);
     @GET("api/auth/Usuario/id") // La URL puede variar dependiendo de tu configuración
     Call<GetEmpresa> obtenerEmpresas(@Header("Authorization") String token);
 
+    @POST("api/auth/vitrinas")
+    Call<ResponsePostVitrina> agregarVitrina(@Header("Authorization") String token, @Body InsertarVitrinaRequest request);
+
+
 
 }

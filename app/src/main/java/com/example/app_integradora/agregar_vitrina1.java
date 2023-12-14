@@ -12,12 +12,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.example.app_integradora.Retroft.GetEmpresa;
 
 import com.example.app_integradora.Retroft.ApiRequest;
+import com.example.app_integradora.Retroft.InsertarVitrinaRequest;
+import com.example.app_integradora.Retroft.ResponsePostVitrina;
 import com.google.android.material.navigation.NavigationView;
 
 import retrofit2.Call;
@@ -26,6 +31,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -124,7 +130,66 @@ public class agregar_vitrina1 extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
+        Button btnAgregar = findViewById(R.id.buttonAgregarVitrina);
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                agregarvitrina();
+            }
+        });
+
+
     }
+
+
+    private void agregarvitrina() {
+        String nombreVitrina = ((EditText) findViewById(R.id.editTextNombrev)).getText().toString().trim();
+        String descripcionVitrina = ((EditText) findViewById(R.id.editTextDescripcionVitrina)).getText().toString().trim();
+        String empresaSeleccionada = spinnerEmpresas.getSelectedItem().toString();
+
+        // Verifica que los campos no estén vacíos
+        if (nombreVitrina.isEmpty() || descripcionVitrina.isEmpty() || empresaSeleccionada.isEmpty()) {
+            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Crear una instancia de Retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://3.138.171.241") // Asegúrate de que esta es la URL correcta
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiRequest apiRequest = retrofit.create(ApiRequest.class);
+        InsertarVitrinaRequest insertarVitrinaRequest = new InsertarVitrinaRequest(nombreVitrina, descripcionVitrina, empresaSeleccionada);
+
+        // Uso de llamadas asíncronas en lugar de ejecutar en el hilo principal
+        Call<ResponsePostVitrina> call = apiRequest.agregarVitrina("Bearer " + token, insertarVitrinaRequest);
+        call.enqueue(new Callback<ResponsePostVitrina>() {
+            @Override
+            public void onResponse(Call<ResponsePostVitrina> call, Response<ResponsePostVitrina> response) {
+                if (response.isSuccessful()) {
+                    // La inserción fue exitosa
+                    Toast.makeText(agregar_vitrina1.this, "Vitrina agregada con éxito", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Ocurrió un error en la inserción
+                    Toast.makeText(agregar_vitrina1.this, "Error al agregar la vitrina", Toast.LENGTH_SHORT).show();
+                    Log.e("API Error", "Response not successful: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponsePostVitrina> call, Throwable t) {
+                // Error de red o al realizar la solicitud
+                Toast.makeText(agregar_vitrina1.this, "Error de red: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("API Error", "Network error: " + t.getMessage());
+            }
+        });
+    }
+
+
+
+
 
     private void obtenerEmpresas() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -162,6 +227,7 @@ public class agregar_vitrina1 extends AppCompatActivity {
                 Log.e("API Error", "Call failed: " + t.getMessage());
             }
         });
+
     }
 
     @Override
